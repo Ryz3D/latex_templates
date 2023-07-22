@@ -1,0 +1,108 @@
+\providecommand{\sTitle}{Fehlender Titel}
+\providecommand{\sAuthor}{Mirco Heitmann}
+\providecommand{\sDate}{\today}
+
+% \, für Lücke (1 000 und Einheit)
+% {,} für Komma ohne Lücke
+% \text für Einheit
+
+\usepackage[ngerman]{babel}
+\usepackage[margin={20mm,20mm}]{geometry}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{setspace}
+\usepackage{tabularray}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[pdftex,
+            pdfauthor={\sAuthor},
+            pdftitle={\sTitle},
+            pdfproducer={pdfLaTeX},
+            pdfcreator={LaTeX},
+            hidelinks,
+            bookmarks]{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdftitle={\sTitle},
+    pdfauthor={\sAuthor},
+    pdfpagemode=FullScreen
+}
+\usepackage{xurl}
+\usepackage{titling}
+\usepackage{bookmark}
+\usepackage{tocloft}
+\usepackage{float}
+
+\graphicspath{ {./img/} }
+\linespread{1.25}
+
+% \intropage {content}
+\newcommand{\intropage}[1]{
+\pagenumbering{gobble}
+{
+\linespread{1.5}
+#1
+{\let\newpage\relax\maketitle}
+}
+\pagebreak
+\pagenumbering{arabic}
+}
+% \tocline {text}
+\newcommand{\tocline}[1]{\addcontentsline{toc}{section}{\protect\numberline{}#1}}
+% \extrasection {text}
+\newcommand{\extrasection}[1]{
+\phantomsection
+\section*{#1}
+\tocline{#1}
+}
+% \listfig
+\newcommand{\listfig}[0]{
+\extrasection{Abbildungsverzeichnis}
+\renewcommand\listfigurename{}
+\renewcommand\cftbeforeloftitleskip{0mm}
+\listoffigures
+\pagebreak
+}
+% \listtab
+\newcommand{\listtab}[0]{
+\extrasection{Tabellenverzeichnis}
+\renewcommand\listtablename{}
+\renewcommand\cftbeforelottitleskip{0mm}
+\listoftables
+\pagebreak
+}
+% \listextra
+\newcommand{\listextra}[0]{
+\extrasection{Anlagenverzeichnis}
+}
+% \todo {text}
+\newcommand{\todo}[1]{{\color{red}#1}}
+% \graphicsfig {file, caption, label, width}
+\newcommand{\graphicsfig}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4]{#1}
+\caption{#2} \label{#3}
+\end{figure}
+}
+
+\title{\sTitle}
+\author{\sAuthor}
+\date{\sDate}
+
+% \sqrt Haken
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother

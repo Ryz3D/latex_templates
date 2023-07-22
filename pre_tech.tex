@@ -1,0 +1,97 @@
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{circuitikz}
+
+\lstset{
+	title=\lstname
+}
+
+% \ccode
+\newcommand{\ccode}[1]{\lstinline[style=cStyle, basicstyle=\ttfamily\color{cBasic}, breaklines=false]{#1}}
+% \acode
+\newcommand{\acode}[1]{\lstinline[style=asmStyle, basicstyle=\ttfamily\color{cBasic}, breaklines=false]{#1}}
+% \concode
+\newcommand{\concode}[1]{\lstinline[style=consoleStyle, basicstyle=\ttfamily\color{cBasic}]{#1}}
+
+% \inputcode {style, file}
+\newcommand{\inputcode}[2]{
+\lstinputlisting[style=#1]{#2}
+}
+% \inputcodeline {style, file, line}
+\newcommand{\inputcodeline}[3]{
+\lstinputlisting[style=#1, linerange={#3-#3}, firstnumber=#3]{#2}
+}
+% \inputcodelines {style, file, linestart, lineend}
+\newcommand{\inputcodelines}[4]{
+\lstinputlisting[style=#1, linerange={#3-#4}, firstnumber=#3]{#2}
+}
+
+\definecolor{cBackground}{HTML}{FFFFFF}
+\definecolor{cComment}{HTML}{008000}
+\definecolor{cKeyword}{HTML}{0000FF}
+\definecolor{cNdKeyword}{HTML}{2020FF}
+\definecolor{cNumber}{HTML}{098658}
+\definecolor{cString}{HTML}{A31515}
+\definecolor{cIdentifier}{HTML}{000000}
+\definecolor{cBasic}{HTML}{000000}
+
+\lstdefinestyle{cStyle}{
+    backgroundcolor=\color{cBackground},
+    commentstyle=\color{cComment},
+    keywordstyle=\color{cKeyword},
+    ndkeywordstyle=\color{cNdKeyword},
+    numberstyle=\tiny\color{cNumber},
+    stringstyle=\color{cString},
+    identifierstyle=\color{cIdentifier},
+    basicstyle=\fontsize{8pt}{9pt}\selectfont\ttfamily\color{cBasic},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=C,
+    morekeywords=[1]{bool, int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t}
+}
+
+\lstdefinestyle{asmStyle}{
+    backgroundcolor=\color{cBackground},
+    commentstyle=\color{cComment},
+    keywordstyle=\color{cKeyword},
+    ndkeywordstyle=\color{cNdKeyword},
+    numberstyle=\tiny\color{cNumber},
+    stringstyle=\color{cString},
+    identifierstyle=\color{cIdentifier},
+    basicstyle=\small\ttfamily\color{cBasic},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language={[x86masm]Assembler},
+    morekeywords=[1]{ADC, AND, ASL, BCC, BCS, BEQ, BIT, BMI, BNE, BPL, BRK, BVC, BVS, CLC, CLD, CLI, CLV, CMP, CPX, CPY, DEC, DEX, DEY, EOR, INC, INX, INY, JMP, JSR, LDA, LDX, LDY, LSR, NOP, ORA, PHA, PHP, PLA, PLP, ROL, ROR, RTI, RTS, SBC, SEC, SED, SEI, STA, STX, STY, TAX, TAY, TSX, TXA, TXS, TYA}
+}
+
+\lstdefinestyle{consoleStyle}{
+    backgroundcolor=\color{cBackground},
+    basicstyle=\small\ttfamily\color{cBasic},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=C
+}

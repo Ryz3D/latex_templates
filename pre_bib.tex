@@ -1,0 +1,20 @@
+\usepackage[style=authoryear, dashed=false]{biblatex}
+
+\DefineBibliographyStrings{ngerman}{
+	urlseen = {abgerufen am},
+	editor = {Hrsg \adddot},
+}
+\DeclareFieldFormat{editortype}{\mkbibparens{#1}}
+\DeclareDelimFormat{editortypedelim}{\addspace}
+
+\addbibresource{../.bib/basic.bib}
+
+% \listlit
+\newcommand{\listlit}[0]{
+\extrasection{Literaturverzeichnis}
+\begingroup
+\renewcommand{\section}[2]{}
+\printbibliography
+\endgroup
+\pagebreak
+}
