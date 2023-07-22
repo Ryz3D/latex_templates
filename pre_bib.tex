@@ -10,8 +10,9 @@
 \addbibresource{../.bib/basic.bib}
 
 % \listlit
-\newcommand{\listlit}[0]{
-\extrasection{Literaturverzeichnis}
+\providecommand{\listlitname}{Literaturverzeichnis}
+\newcommand{\listlit}{
+\extrasection{\listlitname}
 \begingroup
 \renewcommand{\section}[2]{}
 \printbibliography

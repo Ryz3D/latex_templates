@@ -2,10 +2,6 @@
 \providecommand{\sAuthor}{Mirco Heitmann}
 \providecommand{\sDate}{\today}
 
-% \, für Lücke (1 000 und Einheit)
-% {,} für Komma ohne Lücke
-% \text für Einheit
-
 \usepackage[ngerman]{babel}
 \usepackage[margin={20mm,20mm}]{geometry}
 \usepackage{amsmath}
@@ -60,22 +56,25 @@
 \tocline{#1}
 }
 % \listfig
+\providecommand{\listfigname}{Abbildungsverzeichnis}
 \newcommand{\listfig}[0]{
-\extrasection{Abbildungsverzeichnis}
+\extrasection{\listfigname}
 \renewcommand\listfigurename{}
 \renewcommand\cftbeforeloftitleskip{0mm}
 \listoffigures
 \pagebreak
 }
 % \listtab
+\providecommand{\listtabname}{Tabellenverzeichnis}
 \newcommand{\listtab}[0]{
-\extrasection{Tabellenverzeichnis}
+\extrasection{\listtabname}
 \renewcommand\listtablename{}
 \renewcommand\cftbeforelottitleskip{0mm}
 \listoftables
 \pagebreak
 }
 % \listextra
+\providecommand{\listextraname}{Anlagenverzeichnis}
 \newcommand{\listextra}[0]{
 \extrasection{Anlagenverzeichnis}
 }
