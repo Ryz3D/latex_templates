@@ -15,17 +15,11 @@
 \newcommand{\concode}[1]{\lstinline[style=consoleStyle, basicstyle=\ttfamily\color{cBasic}]{#1}}
 
 % \inputcode {style, file}
-\newcommand{\inputcode}[2]{
-\lstinputlisting[style=#1]{#2}
-}
+\newcommand{\inputcode}[2]{\lstinputlisting[style=#1]{#2}}
 % \inputcodeline {style, file, line}
-\newcommand{\inputcodeline}[3]{
-\lstinputlisting[style=#1, linerange={#3-#3}, firstnumber=#3]{#2}
-}
+\newcommand{\inputcodeline}[3]{\lstinputlisting[style=#1, firstline=#3, lastline=#3, firstnumber=#3]{#2}}
 % \inputcodelines {style, file, linestart, lineend}
-\newcommand{\inputcodelines}[4]{
-\lstinputlisting[style=#1, linerange={#3-#4}, firstnumber=#3]{#2}
-}
+\newcommand{\inputcodelines}[4]{\lstinputlisting[style=#1, firstline=#3, lastline=#4, firstnumber=#3]{#2}}
 
 \definecolor{cBackground}{HTML}{FFFFFF}
 \definecolor{cComment}{HTML}{008000}

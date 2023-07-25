@@ -55,8 +55,9 @@
 \section*{#1}
 \tocline{#1}
 }
-% \listfig
+% \listfigname
 \providecommand{\listfigname}{Abbildungsverzeichnis}
+% \listfig
 \newcommand{\listfig}[0]{
 \extrasection{\listfigname}
 \renewcommand\listfigurename{}
@@ -64,19 +65,23 @@
 \listoffigures
 \pagebreak
 }
-% \listtab
+% \listtabname
 \providecommand{\listtabname}{Tabellenverzeichnis}
-\newcommand{\listtab}[0]{
+% \listtab
+\newcommand{\listtab}{
 \extrasection{\listtabname}
 \renewcommand\listtablename{}
 \renewcommand\cftbeforelottitleskip{0mm}
 \listoftables
 \pagebreak
 }
-% \listextra
+% \listextraname
 \providecommand{\listextraname}{Anlagenverzeichnis}
-\newcommand{\listextra}[0]{
-\extrasection{Anlagenverzeichnis}
+% \listextra
+\newcommand{\listextra}[1]{
+\extrasection{\listextraname}
+#1
+\pagebreak
 }
 % \todo {text}
 \newcommand{\todo}[1]{{\color{red}#1}}

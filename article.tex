@@ -1,5 +1,7 @@
 \documentclass[10pt, a4paper, ngerman]{article}
 \newcommand{\sTitle}{Fehlender Titel}
+% \newcommand{\sAuthor}{Autor}
+% \newcommand{\sDate}{01. April 1990}
 \input{../template/pre}
 \input{../template/pre_tech}
 \input{../template/pre_bib}
@@ -15,9 +17,24 @@
 
 \section{Einleitung}
 
+% Abbildung: \graphicsfig{test.png, Ein Bild, fig:test, 150mm}
+
+% Code in Text:
+% \ccode{int main(int argc, char *argv[])}
+% Code aus Datei:
+% \inputcode{cStyle}{article.tex}
+% \inputcodeline{cStyle}{article.tex}{1}
+% \inputcodelines{cStyle}{article.tex}{2}{4}
+
+% \todo{Verbesserungsbedarf!}
+
 \pagebreak
 \listlit % Literaturverzeichnis
 \listfig % Abbildungsverzeichnis
 \listtab % Tabellenverzeichnis
-\listextra % Anlagenverzeichnis
+% Umbenennen: \renewcommand{\listextraname}{Anhangsverzeichnis}
+\listextra{ % Anlagenverzeichnis
+Anlagen
+}
+% Kapitel ohne Nummer: \extrasection{Titel}
 \end{document}
