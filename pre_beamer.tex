@@ -1,0 +1,62 @@
+\providecommand{\sTitle}{Fehlender Titel}
+\providecommand{\sAuthor}{Mirco Heitmann}
+\providecommand{\sInstitute}{THM}
+\providecommand{\sDate}{\today}
+
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tabularray}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage{standalone}
+
+\graphicspath{ {./img/} }
+\setbeamertemplate{navigation symbols}{}
+
+% \smallsource {url}
+\newcommand{\smallsource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \textit{Quelle: \href{#1}{#1}}}}
+% \smallersource {url}
+\newcommand{\smallersource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \href{#1}{#1}}}
+% \framesources
+\providecommand{\framesourcesname}{Quellen}
+\newcommand{\framesources}[1]{
+\section{\framesourcesname}
+\begin{frame}
+\frametitle{\framesourcesname}
+\begin{itemize}
+#1
+\end{itemize}
+\end{frame}
+}
+% \todo {text}
+\newcommand{\todo}[1]{{\color{red}#1}}
+% \graphicsfig {file} {caption} {label} {width}
+\newcommand{\graphicsfig}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\textwidth]{#1}
+\caption{#2} \label{#3}
+\end{figure}
+}
+
+\title{\sTitle}
+\author{\sAuthor}
+\institute{\sInstitute}
+\date{\sDate}
+
+% \sqrt Haken
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
