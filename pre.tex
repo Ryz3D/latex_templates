@@ -2,7 +2,8 @@
 \providecommand{\sAuthor}{Mirco Heitmann}
 \providecommand{\sDate}{\today}
 
-\usepackage[ngerman]{babel}
+\usepackage[english,ngerman]{babel}
+\usepackage{iflang}
 \usepackage[margin={20mm,20mm}]{geometry}
 \usepackage{amsmath}
 \usepackage{anyfontsize}
@@ -57,7 +58,7 @@
 \tocline{#1}
 }
 % \listfigname
-\providecommand{\listfigname}{Abbildungsverzeichnis}
+\providecommand{\listfigname}{\IfLanguageName{ngerman}{Abbildungsverzeichnis}{List of Figures}}
 % \listfig
 \newcommand{\listfig}[0]{
 \extrasection{\listfigname}
@@ -67,7 +68,7 @@
 \pagebreak
 }
 % \listtabname
-\providecommand{\listtabname}{Tabellenverzeichnis}
+\providecommand{\listtabname}{\IfLanguageName{ngerman}{Tabellenverzeichnis}{List of Tables}}
 % \listtab
 \newcommand{\listtab}{
 \extrasection{\listtabname}
@@ -77,7 +78,7 @@
 \pagebreak
 }
 % \listextraname
-\providecommand{\listextraname}{Anlagenverzeichnis}
+\providecommand{\listextraname}{\IfLanguageName{ngerman}{Anlagenverzeichnis}{List of Appendices}}
 % \listextra
 \newcommand{\listextra}[1]{
 \extrasection{\listextraname}
