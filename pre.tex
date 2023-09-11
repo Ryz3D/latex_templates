@@ -49,14 +49,25 @@
 \pagebreak
 \pagenumbering{arabic}
 }
+
 % \tocline {text}
 \newcommand{\tocline}[1]{\addcontentsline{toc}{section}{\protect\numberline{}#1}}
+% \tocsubline {text}
+\newcommand{\tocsubline}[1]{\addcontentsline{toc}{subsection}{\protect\numberline{}#1}}
+
 % \extrasection {text}
 \newcommand{\extrasection}[1]{
 \phantomsection
 \section*{#1}
 \tocline{#1}
 }
+% \extrasubsection {text}
+\newcommand{\extrasubsection}[1]{
+\phantomsection
+\subsection*{#1}
+\tocsubline{#1}
+}
+
 % \listfigname
 \providecommand{\listfigname}{\IfLanguageName{ngerman}{Abbildungsverzeichnis}{List of Figures}}
 % \listfig
@@ -67,6 +78,7 @@
 \listoffigures
 \pagebreak
 }
+
 % \listtabname
 \providecommand{\listtabname}{\IfLanguageName{ngerman}{Tabellenverzeichnis}{List of Tables}}
 % \listtab
@@ -77,6 +89,7 @@
 \listoftables
 \pagebreak
 }
+
 % \listextraname
 \providecommand{\listextraname}{\IfLanguageName{ngerman}{Anlagenverzeichnis}{List of Appendices}}
 % \listextra
@@ -85,8 +98,10 @@
 #1
 \pagebreak
 }
+
 % \todo {text}
 \newcommand{\todo}[1]{{\color{red}#1}}
+
 % \graphicsfig {file, caption, label, width}
 \newcommand{\graphicsfig}[4]{
 \begin{figure}[H]
@@ -95,10 +110,6 @@
 \caption{#2} \label{#3}
 \end{figure}
 }
-
-\title{\sTitle}
-\author{\sAuthor}
-\date{\sDate}
 
 % \sqrt Haken
 \usepackage{letltxmacro}
@@ -112,3 +123,7 @@
 \LetLtxMacro{\oldsqrt}{\sqrt}
 \renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
 \makeatother
+
+\title{\sTitle}
+\author{\sAuthor}
+\date{\sDate}
