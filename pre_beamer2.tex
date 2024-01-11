@@ -1,0 +1,124 @@
+\providecommand{\fontAtkinson}{0}
+\providecommand{\fontFira}{0}
+\providecommand{\fontRaleway}{0}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tabularray}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage{standalone}
+\usepackage[useregional]{datetime2}
+\usepackage{letltxmacro}
+\usepackage[T1]{fontenc}
+
+\if\fontAtkinson1
+  \usepackage{arev}
+  \usepackage[sfdefault]{atkinson}
+\else
+  \if\fontFira1
+    \usepackage{arev}
+    \usepackage[sfdefault,lining]{FiraSans}
+    \usepackage[lining]{FiraMono}
+  \else
+    \if\fontRaleway1
+      \usepackage{arev}
+      \usepackage[default]{raleway}
+    \else
+      \usepackage{lmodern}
+    \fi
+  \fi
+\fi
+
+\graphicspath{ {./img/} }
+\setbeamertemplate{navigation symbols}{}
+
+% \setTitle {title}
+\newcommand{\setTitle}[1]{
+\hypersetup{pdftitle=#1}
+\title{#1}
+}
+
+% \setAuthor {author}
+\newcommand{\setAuthor}[1]{
+\hypersetup{pdfauthor=#1}
+\author{#1}
+}
+
+% \setInstitute {institute}
+\newcommand{\setInstitute}[1]{
+\institute{#1}
+}
+
+% \setDate {YYYY-MM-DD or \today}
+\newcommand{\setDate}[1]{
+\date{\ifx#1\today\today\else\DTMdate{#1}\fi}
+}
+
+\setTitle{Fehlender Titel}
+\setAuthor{Mirco Heitmann}
+\setInstitute{THM}
+\setDate{\today}
+
+% \smallsource {url}
+\newcommand{\smallsource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \textit{Quelle: \href{#1}{#1}}}}
+% \smallersource {url}
+\newcommand{\smallersource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \href{#1}{#1}}}
+% \framesources
+\providecommand{\framesourcesname}{Quellen}
+\newcommand{\framesources}[1]{
+\section{\framesourcesname}
+\begin{frame}
+\frametitle{\framesourcesname}
+\begin{itemize}
+#1
+\end{itemize}
+\end{frame}
+}
+% \todo {text}
+\newcommand{\todo}[1]{{\color{red}#1}}
+% \graphicsfig {file} {caption} {label} {width}
+\newcommand{\graphicsfig}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\textwidth]{#1}
+\caption{#2} \label{#3}
+\end{figure}
+}
+
+% \sqrt Haken
+\newcommand{\sqrtHookHeight}{0.4pt}
+\newcommand{\sqrtHookLength}{-0.2}
+\newcommand{\sqrtHookWidth}{0.4pt}
+
+\if\fontAtkinson1
+\renewcommand{\sqrtHookHeight}{0.9pt}
+\renewcommand{\sqrtHookLength}{-0.4}
+\renewcommand{\sqrtHookWidth}{1.0pt}
+\fi
+
+\if\fontFira1
+\renewcommand{\sqrtHookHeight}{0.9pt}
+\renewcommand{\sqrtHookLength}{-0.4}
+\renewcommand{\sqrtHookWidth}{1.0pt}
+\fi
+
+\if\fontRaleway1
+\renewcommand{\sqrtHookHeight}{0.9pt}
+\renewcommand{\sqrtHookLength}{-0.4}
+\renewcommand{\sqrtHookWidth}{1.0pt}
+\fi
+
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0\sqrtHookLength\ht0
+\setbox2=\hbox{\vrule height \ht0 depth -\dimen0 width \sqrtHookWidth}%
+{\box0\lower\sqrtHookHeight\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
