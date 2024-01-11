@@ -1,12 +1,22 @@
 \documentclass[ngerman]{beamer}
-\newcommand{\sTitle}{Fehlender Titel}
-% \newcommand{\sAuthor}{Autor}
-% \newcommand{\sInstitute}{Firma}
-% \newcommand{\sDate}{01. April 1990}
-\input{../template/pre_beamer}
+
+\newcommand{\fontFira}{1}
+
+\input{../template/pre_beamer2}
 \input{../template/pre_tech}
 
-\usetheme{Berlin}
+\setTitle{Fehlender Titel}
+\setAuthor{Autor}
+\setInstitute{Modul}
+\setDate{\today}
+
+% https://deic.uab.cat/~iblanes/beamer_gallery/index.html
+\usetheme{Frankfurt}
+\usecolortheme{seahorse}
+
+\setbeamerfont{structure}{shape=\scshape}
+\setbeamerfont{headline}{shape=\scshape}
+\setbeamerfont{block title}{shape=\normalfont, series=\firamedium}
 
 % Gliederung bei jeder section
 \AtBeginSection[]
@@ -32,14 +42,14 @@
 
 % \todo{Verbesserungsbedarf!}
 
-\section{}
+\section{Einleitung}
 
 \begin{frame}
 \end{frame}
 
 % Umbenennen: \renewcommand{\framesourcesname}{Literatur}
 \framesources{
-\item \smallersource{https://google.com}
+\item \url{https://google.com}
 }
 
 \end{document}
