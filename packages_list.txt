@@ -24,6 +24,8 @@ tocloft
 float
 cleveref
 standalone
+datetime2
+letltxmacro
 
 booktabs
 ninecolors
