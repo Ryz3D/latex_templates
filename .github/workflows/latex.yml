@@ -14,10 +14,12 @@ jobs:
 
     steps:
       - name: Folder setup
-        run: mkdir template; cd template
+        run: mkdir template
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          path: template
       
       - name: Install TeX Live
         uses: ryz3d/install-texlive@v1
@@ -25,16 +27,16 @@ jobs:
           package_file: packages_list.txt
       
       - name: Compile examples
-        run: for i in example_*.tex; do pdflatex $i; done
+        run: cd template; for i in example_*.tex; do pdflatex $i; done
       
       - name: Biber
-        run: for i in example_*.tex; do biber $i; done
+        run: cd template; for i in example_*.tex; do biber $i; done
       
       - name: LaTeX compilation Part two
-        run: for i in example_*.tex; do pdflatex $i; done
+        run: cd template; for i in example_*.tex; do pdflatex $i; done
       
       - name: Archive .pdf
         uses: actions/upload-artifact@v3
         with:
           name: CD_${{github.run_number}}
-          path: example_*.pdf
+          path: template/example_*.pdf
