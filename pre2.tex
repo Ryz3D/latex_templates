@@ -35,12 +35,6 @@
             pdfcreator={LaTeX},
             hidelinks,
             bookmarks]{hyperref}
-\hypersetup{
-    pdftitle={Fehlender Titel},
-    pdfauthor={Mirco Heitmann},
-    colorlinks=false,
-    pdfpagemode=FullScreen
-}
 \usepackage{xurl}
 \usepackage{titling}
 \usepackage{bookmark}
@@ -52,13 +46,23 @@
 \usepackage{letltxmacro}
 \usepackage[T1]{fontenc}
 
+\hypersetup{
+    pdftitle={Fehlender Titel},
+    pdfauthor={Mirco Heitmann},
+    colorlinks=false,
+    pdfpagemode=FullScreen
+}
+
+\UseTblrLibrary{booktabs}
+
+% font selection
 \if\fontAtkinson1
   \usepackage{arev}
   \usepackage[sfdefault]{atkinson}
 \else
   \if\fontFira1
     \usepackage{arev}
-    \usepackage[sfdefault,lining]{FiraSans}
+    \usepackage[sfdefault,lining,scaled=1.1]{FiraSans}
     \usepackage[lining]{FiraMono}
   \else
     \if\fontRaleway1
@@ -71,7 +75,27 @@
 \fi
 
 \graphicspath{{img/}}
-\linespread{1.25}
+\linespread{1.5}
+
+% select greek var letters
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\phi}{\varphi}
+
+% theme=wcaption for tblr
+\DefTblrTemplate{caption}{wide}{
+\makebox[\hsize][c]{
+\parbox{\textwidth}{
+\centering
+\UseTblrTemplate {caption-tag}{default}
+\UseTblrTemplate {caption-sep}{default}
+\UseTblrTemplate {caption-text}{default}
+}
+}
+}
+\NewTblrTheme{wcaption}{
+    \SetTblrTemplate{caption}{wide}
+}
 
 % \setTitle {title}
 \newcommand{\setTitle}[1]{
