@@ -36,7 +36,7 @@ jobs:
         run: cd template; for i in example_*.tex; do pdflatex $i; done
       
       - name: Biber
-        run: cd template; for i in example_*.tex; do biber $i; done
+        run: cd template; for i in example_*.tex; do biber $(basename $i .tex); done
       
       - name: LaTeX compilation Part two
         run: cd template; for i in example_*.tex; do pdflatex $i; done
