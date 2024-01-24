@@ -27,6 +27,12 @@ standalone
 datetime2
 letltxmacro
 
+arev
+atkinson
+fira
+raleway
+lm
+
 booktabs
 ninecolors
 listings
