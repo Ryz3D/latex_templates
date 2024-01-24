@@ -27,6 +27,7 @@ standalone
 datetime2
 letltxmacro
 
+bera
 arev
 atkinson
 fira
