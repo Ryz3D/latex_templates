@@ -1,6 +1,7 @@
 etoolbox
 filehook
 svn-prov
+fontaxes
 
 babel
 babel-german
