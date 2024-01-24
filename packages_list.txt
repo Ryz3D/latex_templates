@@ -2,6 +2,7 @@ etoolbox
 filehook
 svn-prov
 fontaxes
+mathdesign
 
 babel
 babel-german
