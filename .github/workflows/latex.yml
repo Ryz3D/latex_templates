@@ -22,13 +22,13 @@ jobs:
           package_file: packages_list.txt
       
       - name: Compile examples
-        run: cd examples; for i in *.tex; do pdflatex $i; do pdflatex $i;done
+        run: cd examples; for i in *.tex; do pdflatex $i; done
       
       - name: Biber
-        run: cd examples; for i in *.tex; do biber $i; do pdflatex $i;done
+        run: cd examples; for i in *.tex; do biber $i; done
       
       - name: LaTeX compilation Part two
-        run: cd examples; for i in *.tex; do pdflatex $i; do pdflatex $i;done
+        run: cd examples; for i in *.tex; do pdflatex $i; done
       
       - name: Archive .pdf
         uses: actions/upload-artifact@v3
