@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Folder setup
+        run: mkdir template; cd template
+
       - name: Checkout
         uses: actions/checkout@v3
       
