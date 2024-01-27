@@ -23,7 +23,7 @@ jobs:
         run: mkdir template
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           path: template
       
@@ -42,7 +42,7 @@ jobs:
         run: cd template; for i in example_*.tex; do pdflatex $i; done
       
       - name: Archive .pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.0
         with:
           name: CD_${{github.run_number}}
           path: template/example_*.pdf
