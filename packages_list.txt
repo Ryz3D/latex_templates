@@ -26,6 +26,7 @@ bookmark
 tocloft
 float
 cleveref
+caption
 standalone
 datetime2
 letltxmacro
