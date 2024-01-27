@@ -1,0 +1,131 @@
+% Symbole für Eisenbahnsignale in schematischem Signallageplan
+
+\newcommand{\tikzSignalLabel}[2]{
+	(#2) node[#1,text height=5.5pt]{\tiny #2}
+}
+
+% Hp1 Rechts
+\newcommand{\tikzSignalHpR}[1]{
+	node(#1)[draw,minimum size=5]{}
+	++(-0.6,0) -- ++(-2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{below}{#1}
+}
+
+% Hp1 Rechts gefüllt
+\newcommand{\tikzSignalHpFR}[1]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(-0.6,0) -- ++(-2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{below}{#1}
+}
+
+% Hp1+Vr Rechts gefüllt
+\newcommand{\tikzSignalHpFVR}[2]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(-0.6,0) -- ++(-2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(1.5,-0.35) node[draw,minimum size=1.5,fill]{}
+	++(-0.5,0.7) node[draw,minimum size=1.5,fill]{}
+	++(0.25,-0.35) node(#2)[minimum size=5]{}
+	\tikzSignalLabel{below,xshift=5}{#1}
+	\tikzSignalLabel{below,xshift=-5}{#2}
+}
+
+% Hp1/2 Rechts
+\newcommand{\tikzSignalHpZR}[1]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(-1.3,0)
+	node[draw,minimum size=5,fill]{}
+	++(-0.6,0) -- ++(-2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{below}{#1}
+}
+
+% Hp1/2+Vr Rechts
+\newcommand{\tikzSignalHpZVR}[2]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(-1.3,0)
+	node[draw,minimum size=5,fill]{}
+	++(-0.6,0) -- ++(-2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(1.5,-0.35) node[draw,minimum size=1.5,fill]{}
+	++(-0.5,0.7) node[draw,minimum size=1.5,fill]{}
+	++(0.25,-0.35) node(#2)[minimum size=5]{}
+	\tikzSignalLabel{below,xshift=5}{#1}
+	\tikzSignalLabel{below,xshift=-5}{#2}
+}
+
+% Hp1 Links
+\newcommand{\tikzSignalHpL}[1]{
+	node(#1)[draw,minimum size=5]{}
+	++(0.6,0) -- ++(2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{above}{#1}
+}
+
+% Hp1 Links gefüllt
+\newcommand{\tikzSignalHpFL}[1]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(0.6,0) -- ++(2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{above}{#1}
+}
+
+% Hp1+Vr Links gefüllt
+\newcommand{\tikzSignalHpFVL}[2]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(0.6,0) -- ++(2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(-1.5,0.35) node[draw,minimum size=1.5,fill]{}
+	++(0.5,-0.7) node[draw,minimum size=1.5,fill]{}
+	++(-0.25,0.35) node(#2)[minimum size=5]{}
+	\tikzSignalLabel{above,xshift=-5}{#1}
+	\tikzSignalLabel{above,xshift=5}{#2}
+}
+
+% Hp1/2 Links
+\newcommand{\tikzSignalHpZL}[1]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(1.3,0)
+	node[draw,minimum size=5,fill]{}
+	++(0.6,0) -- ++(2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	\tikzSignalLabel{above}{#1}
+}
+
+% Hp1/2+Vr Links
+\newcommand{\tikzSignalHpZVL}[2]{
+	node(#1)[draw,minimum size=5,fill]{}
+	++(1.3,0)
+	node[draw,minimum size=5,fill]{}
+	++(0.6,0) -- ++(2,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(-1.5,0.35) node[draw,minimum size=1.5,fill]{}
+	++(0.5,-0.7) node[draw,minimum size=1.5,fill]{}
+	++(-0.25,0.35) node(#2)[minimum size=5]{}
+	\tikzSignalLabel{above,xshift=-5}{#1}
+	\tikzSignalLabel{above,xshift=5}{#2}
+}
+
+% Vr Rechts
+\newcommand{\tikzSignalVrR}[1]{
+	node(#1)[minimum size=5]{}
+	(#1) -- ++(0.5,0)
+	-- ++(-3,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(2.5,-0.35) node[draw,minimum size=1.5,fill]{}
+	++(-0.5,0.7) node[draw,minimum size=1.5,fill]{}
+	\tikzSignalLabel{above}{#1}
+}
+
+% Vr Links
+\newcommand{\tikzSignalVrL}[1]{
+	node(#1)[minimum size=5]{}
+	(#1) -- ++(-0.5,0)
+	-- ++(3,0)
+	++(0,0.5) -- ++(0,-1) ++(0,0.5)
+	++(-2.5,0.35) node[draw,minimum size=1.5,fill]{}
+	++(0.5,-0.7) node[draw,minimum size=1.5,fill]{}
+	\tikzSignalLabel{above}{#1}
+}

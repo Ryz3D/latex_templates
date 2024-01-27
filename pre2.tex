@@ -41,19 +41,17 @@
 \usepackage{tocloft}
 \usepackage{float}
 \usepackage[noabbrev,nameinlink]{cleveref}
+\usepackage{caption}
 \usepackage{standalone}
 \usepackage[useregional]{datetime2}
 \usepackage{letltxmacro}
 \usepackage[T1]{fontenc}
 
-\hypersetup{
-    pdftitle={Fehlender Titel},
-    pdfauthor={Mirco Heitmann},
-    colorlinks=false,
-    pdfpagemode=FullScreen
-}
-
 \UseTblrLibrary{booktabs}
+
+% translate table continuation
+\DefTblrTemplate{contfoot-text}{default}{\IfLanguageName{ngerman}{Auf nächster Seite fortgeführt}{Continued on next page}}
+\DefTblrTemplate{conthead-text}{default}{\IfLanguageName{ngerman}{(Fortgeführt)}{(Continued)}}
 
 % font selection
 \if\fontAtkinson1
@@ -95,6 +93,13 @@
 }
 \NewTblrTheme{wcaption}{
     \SetTblrTemplate{caption}{wide}
+}
+
+\hypersetup{
+    pdftitle={Fehlender Titel},
+    pdfauthor={Mirco Heitmann},
+    colorlinks=false,
+    pdfpagemode=FullScreen
 }
 
 % \setTitle {title}
@@ -189,6 +194,13 @@
 \includegraphics[width=#4\textwidth]{#1}
 \caption{#2} \label{#3}
 \end{figure}
+}
+
+% \subitem {items}
+\newcommand{\iitem}[2][\item]{
+\begin{itemize}
+#1 #2
+\end{itemize}
 }
 
 % \sqrt Haken
