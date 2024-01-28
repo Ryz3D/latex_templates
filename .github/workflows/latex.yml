@@ -23,12 +23,12 @@ jobs:
         run: mkdir template
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: template
       
       - name: Install TeX Live
-        uses: ryz3d/install-texlive@v1
+        uses: ryz3d/install-texlive@v2
         with:
           package_file: template/packages_list.txt
       
@@ -42,7 +42,7 @@ jobs:
         run: cd template; for i in example_*.tex; do pdflatex $i; done
       
       - name: Archive .pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CD_${{github.run_number}}
           path: template/example_*.pdf
