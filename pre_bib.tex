@@ -7,6 +7,10 @@
 \DeclareFieldFormat{editortype}{\mkbibparens{#1}}
 \DeclareDelimFormat{editortypedelim}{\addspace}
 
+% url line breaks
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
 % \listlit
 \providecommand{\listlitname}{\IfLanguageName{ngerman}{Literaturverzeichnis}{References}}
 \newcommand{\listlit}{
