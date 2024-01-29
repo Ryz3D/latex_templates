@@ -1,0 +1,126 @@
+\providecommand{\fontAtkinson}{0}
+\providecommand{\fontFira}{0}
+\providecommand{\fontRaleway}{0}
+
+% \firathin
+% \firaultralight
+% \firaextralight
+% \firalight
+% > \firabook
+% \firamedium
+% \firasemibold
+% \firaextrabold
+% \firaheavy
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{tabularray}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{xurl}
+\usepackage[useregional]{datetime2}
+\usepackage{iflang}
+\usepackage{letltxmacro}
+\usepackage{standalone}
+
+\UseTblrLibrary{booktabs}
+
+% translate table continuation
+\DefTblrTemplate{contfoot-text}{default}{\IfLanguageName{ngerman}{Auf nächster Seite fortgeführt}{Continued on next page}}
+\DefTblrTemplate{conthead-text}{default}{\IfLanguageName{ngerman}{(Fortgeführt)}{(Continued)}}
+
+% font selection
+\if\fontAtkinson1
+  \usepackage{arev}
+  \usepackage[sfdefault]{atkinson}
+\else
+  \if\fontFira1
+    \usepackage{arev}
+    \usepackage[sfdefault,lining,scaled=1.1]{FiraSans}
+    \usepackage[lining]{FiraMono}
+  \else
+    \if\fontRaleway1
+      \usepackage{arev}
+      \usepackage[default]{raleway}
+    \else
+      \usepackage{lmodern}
+    \fi
+  \fi
+\fi
+
+\graphicspath{ {./img/} }
+
+% select greek var letters
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\phi}{\varphi}
+
+% theme=wcaption for tblr
+\DefTblrTemplate{caption}{wide}{
+\makebox[\hsize][c]{
+\parbox{\textwidth}{
+\centering
+\UseTblrTemplate{caption-tag}{default}\UseTblrTemplate{caption-sep}{default}\UseTblrTemplate{caption-text}{default}
+}}}
+\NewTblrTheme{wcaption}{
+    \SetTblrTemplate{caption}{wide}
+}
+
+% \todo {text}
+\newcommand{\todo}[1]{{\color{red}TODO: #1}}
+
+% \graphicsfig {file, caption, label, width}
+\newcommand{\graphicsfig}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\textwidth]{#1}
+\caption{#2} \label{#3}
+\end{figure}
+}
+
+% \subitem {items}
+\newcommand{\iitem}[2][\item]{
+\begin{itemize}
+#1 #2
+\end{itemize}
+}
+
+% \sqrt Haken
+\newcommand{\sqrtHookHeight}{0.4pt}
+\newcommand{\sqrtHookLength}{-0.2}
+\newcommand{\sqrtHookWidth}{0.4pt}
+
+\if\fontAtkinson1
+\renewcommand{\sqrtHookHeight}{0.575pt}
+\renewcommand{\sqrtHookLength}{-0.3}
+\renewcommand{\sqrtHookWidth}{0.5pt}
+\fi
+
+\if\fontFira1
+\renewcommand{\sqrtHookHeight}{0.575pt}
+\renewcommand{\sqrtHookLength}{-0.3}
+\renewcommand{\sqrtHookWidth}{0.5pt}
+\fi
+
+\if\fontRaleway1
+\renewcommand{\sqrtHookHeight}{0.575pt}
+\renewcommand{\sqrtHookLength}{-0.3}
+\renewcommand{\sqrtHookWidth}{0.5pt}
+\fi
+
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0\sqrtHookLength\ht0
+\setbox2=\hbox{\vrule height \ht0 depth -\dimen0 width \sqrtHookWidth}%
+{\box0\lower\sqrtHookHeight\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
+
