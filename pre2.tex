@@ -84,7 +84,7 @@
 % \listfigname
 \providecommand{\listfigname}{\IfLanguageName{ngerman}{Abbildungsverzeichnis}{List of Figures}}
 % \listfig
-\newcommand{\listfig}[0]{
+\newcommand{\listfig}{
 \extrasection{\listfigname}
 \renewcommand\listfigurename{}
 \renewcommand\cftbeforeloftitleskip{0mm}
@@ -105,7 +105,7 @@
 
 % \listextraname
 \providecommand{\listextraname}{\IfLanguageName{ngerman}{Anlagenverzeichnis}{List of Appendices}}
-% \listextra
+% \listextra {content}
 \newcommand{\listextra}[1]{
 \extrasection{\listextraname}
 #1
