@@ -1,5 +1,4 @@
 \input{../template/pre_base}
-% \usepackage{standalone}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -69,13 +68,15 @@
 \usecolortheme{seahorse}
 }
 
+% \sourcename
+\providecommand{\sourcename}{\IfLanguageName{ngerman}{Quelle}{Source}}
 % \smallsource {url}
-\newcommand{\smallsource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \textit{Quelle: \href{#1}{#1}}}}
+\newcommand{\smallsource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \textit{\sourcename: \href{#1}{#1}}}}
 % \smallersource {url}
 \newcommand{\smallersource}[1]{{\fontsize{6pt}{6pt}\fontshape{n}\fontseries{m}\selectfont \href{#1}{#1}}}
 
 % \framesourcesname
-\providecommand{\framesourcesname}{Quellen}
+\providecommand{\framesourcesname}{\IfLanguageName{ngerman}{Quellen}{Sources}}
 % \framesources {content}
 \newcommand{\framesources}[1]{
 \section{\framesourcesname}

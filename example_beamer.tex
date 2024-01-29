@@ -11,27 +11,14 @@
 \setDate{\today}
 
 % https://deic.uab.cat/~iblanes/beamer_gallery/index.html
-\usetheme{Frankfurt}
-\usecolortheme{seahorse}
-
-\setbeamerfont{structure}{shape=\scshape}
-\setbeamerfont{headline}{shape=\scshape}
-\setbeamerfont{block title}{shape=\normalfont, series=\firamedium}
-
-% Gliederung bei jeder section
-\AtBeginSection[]
-{
-\begin{frame}
-\frametitle{Gliederung}
-\tableofcontents[currentsection]
-\end{frame}
-}
+\frankfurtseahorse
+\scstructure
+\toceverysection
+\setbeamercolor{footline}{fg=gray}
 
 \begin{document}
 
 \frame{\titlepage}
-
-% Abbildung: \graphicsfig{test.png}{Ein Bild}{fig:test}{.8}
 
 % Code in Text:
 % \ccode{int main(int argc, char *argv[])}
