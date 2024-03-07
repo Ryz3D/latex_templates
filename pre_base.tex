@@ -74,12 +74,12 @@
 % \todo {text}
 \newcommand{\todo}[1]{{\color{red}TODO: #1}}
 
-% \graphicsfig {file, caption, label, width}
-\newcommand{\graphicsfig}[4]{
+% \graphicsfig {file, caption, width}
+\newcommand{\graphicsfig}[3]{
 \begin{figure}[H]
 \centering
-\includegraphics[width=#4\textwidth]{#1}
-\caption{#2} \label{#3}
+\includegraphics[width=#3\textwidth]{#1}
+\caption{#2} \label{fig:#1}
 \end{figure}
 }
 
